@@ -1,0 +1,178 @@
+//Home
+onEvent("home_instructionsBtn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("instruction");
+});
+
+onEvent("button1", "click", function (event){
+  console.log ("clicked");
+  setScreen ("home");
+});
+
+onEvent("home_teachersBtn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("Back-btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("home");
+});
+
+onEvent("home_aboutUsBtn", "click", function(event) {
+  console.log("clicked");
+  setScreen("AboutUs");
+});
+onEvent("Back_button", "click", function(event) {
+  console.log("clicked");
+  setScreen("home");
+});
+
+
+//Teachers
+onEvent("Ellis_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Ellis_screen");
+});
+
+onEvent("Erikson_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Erikson_screen");
+});
+
+onEvent("Faidle_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Faidley_screen");
+});
+
+onEvent("Giotta_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Giotta_screen");
+});
+
+onEvent("Hanau_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Hanau_screen");
+});
+
+onEvent("Bassa_btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Bassa_screen");
+});
+
+onEvent("Bassa_back_btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("Bellomo_btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Bellomo_screen");
+});
+
+onEvent("Bellomo_back_btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("Bame_btn", "click", function() {
+  console.log("clicked");
+  setScreen("Bame_pg");
+});
+
+onEvent("Montano_btn", "click", function() {
+  console.log("clicked");
+  setScreen("Montano_pg");
+});
+
+onEvent("Batza_btn", "click", function() {
+  console.log("clicked");
+  setScreen("Batza_pg");
+});
+
+onEvent("Hendrix_btn", "click", function() {
+  console.log("clicked");
+  setScreen("hendrix_pg");
+});
+
+onEvent("Mr.Johnson_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Johnson_screen");
+});
+
+onEvent("Mrs.Johnson_btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Mrs.Johnson_pg");
+});
+
+onEvent("Mrs.Johnson_back_btn", "click", function(event) {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("Kontilis_btn", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Kontilis_pg");
+});
+
+
+
+
+
+
+//Back Buttons
+onEvent("backbuttonhanau", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Teachers");
+});
+
+onEvent("backbuttongiotta", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Teachers");
+});
+
+onEvent("backbuttonfaidley", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Teachers");
+});
+
+onEvent("backbuttonerikson", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Teachers");
+});
+
+onEvent("backbuttonellis", "click", function (event){
+  console.log ("clicked");
+  setScreen ("Teachers");
+});
+
+onEvent("back_btn2", "click", function() {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("back_btn3", "click", function() {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("back_btn1", "click", function() {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("hendrix_back", "click", function() {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("button2", "click", function() {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
+onEvent("Kontilis_back_button", "click", function() {
+  console.log("clicked");
+  setScreen("Teachers");
+});
+
