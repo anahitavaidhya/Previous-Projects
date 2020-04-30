@@ -1,0 +1,352 @@
+// Create your variables here
+var score = 0;
+var energy = 5;
+var back = 0;
+
+// Create your sprites here
+var begAsterisk = createSprite(200, 230);
+begAsterisk.setAnimation("asteriskStretch");
+begAsterisk.scale = 0.6;
+begAsterisk.visible = true;
+
+var asterisk = createSprite(200, 200);
+asterisk.setAnimation("asterisk");
+asterisk.scale = 0.6;
+asterisk.setCollider("circle");
+
+var bubbly = createSprite(200, 335);
+bubbly.setAnimation("bubbly");
+
+var bubble = createSprite(50,430);
+bubble.setAnimation("bubble");
+bubble.scale = 0.2;
+bubble.visible = true;
+bubble.setCollider("circle");
+
+var bubble2 = createSprite(25, 420);
+bubble2.setAnimation("bubble");
+bubble2.scale = 0.2;
+bubble2.visible = true;
+bubble2.setCollider("circle");
+
+var bubble3 = createSprite(35, 420);
+bubble3.setAnimation("bubble");
+bubble3.scale = 0.2;
+bubble3.visible = true;
+bubble3.setCollider("circle");
+bubble3.debug = true;
+
+var over = createSprite(200, 200);
+over.setAnimation("over");
+over.visible = false;
+
+var black = createSprite(60, 40);
+black.setAnimation("black");
+
+var black2 = createSprite(160, 2);
+black2.setAnimation("black");
+
+function draw() {
+  
+  // draw background
+  energy3Down();
+  backStart();
+  
+  if (keyDown("space")){
+    back = back + 1;
+  }
+  if (back > 0){
+    background1();
+  }
+  
+  if (score > 30){
+    background2();
+  }
+  
+  if (energy < 1){
+    backOver();
+  }
+  if (score > 60){
+    movingBubble3();
+    movePlayer2();
+    touch();
+    loopBubble3();
+  }
+
+  // update sprites
+  movePlayer();
+  loopBubble(); 
+  loopBubble2();
+  loopBubble3();
+  touch();
+  energyDown();
+  energy2Down();
+  energy3Down();
+  energyUp();
+  
+  //update variables
+  showScore();
+  showEnergy();
+
+  drawSprites();
+}
+
+
+
+// Functions 
+
+//backgrounds
+function backStart(){
+  background("black");
+  fill("white");
+  textSize(18);
+  text("The player is hungry", 125, 70);
+  text("Feed the player the bubbles",95, 105);
+  text("Move the player with the up, down,",70,140);
+  text("left, right arrows", 145, 175);
+  text("Don't miss a bubble!",120, 300);
+  text("Press the space bar to start",90, 335); 
+  movingBubble1();
+  bubbly.visible = false;
+  asterisk.visible = false;
+  begAsterisk.visible = true;
+}
+
+function background1(){
+  background("pink");
+  movingBubble();
+  bubbly.visible = true;
+  asterisk.visible = true;
+  begAsterisk.visible = false;
+  black.visible= false;
+  black2.visible = false;
+}
+
+function background2(){
+  background("teal");
+  movingBubble2();
+  energyDown();
+  energy2Down();
+  bubbly.visible = true;
+  asterisk.visible = true;
+  begAsterisk.visible = false; 
+  black.visible= false;
+  black2.visible = false;
+}
+
+function backOver(){
+  background("black");
+  over.visible = true;
+  bubble.visible = false;
+  bubble2.visible = false;
+  bubble3.visible = false;
+  bubbly.visible = false;
+  asterisk.visible = false;
+  begAsterisk.visible = false;
+  black.visible = true;
+  black2.visible = true;
+  
+}
+
+//Score 
+  function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ",10, 10, 80, 20);
+  text(score, 70, 10, 80, 20);
+}
+
+//Energy
+function showEnergy(){
+  fill("white");
+  textSize(20);
+  text("Energy: ",110, 10, 80, 20);
+  text(energy, 180, 10, 80, 20);
+}
+
+//Move
+
+//Player
+
+function movePlayer(){
+  if (keyDown("left")){
+    asterisk.x = asterisk.x - 4;
+  }
+  if (keyDown("right")){
+    asterisk.x = asterisk.x + 4;
+  }
+  if (keyDown("up")){
+    asterisk.y = asterisk.y - 4;
+  }
+  if (keyDown("down")){
+    asterisk.y = asterisk.y + 4;
+  }
+}
+
+function movePlayer2(){
+  if (keyDown("left")){
+    asterisk.x = asterisk.x - 4.5;
+  }
+  if (keyDown("right")){
+    asterisk.x = asterisk.x + 4.5;
+  }
+  if (keyDown("up")){
+    asterisk.y = asterisk.y - 4.5;
+  }
+  if (keyDown("down")){
+    asterisk.y = asterisk.y + 4.5;
+  }
+}
+
+//Bubble Move
+function movingBubble1(){
+  bubble.velocityY = 0;
+  bubble2.velocityY = 0;
+  bubble3.velocityY = 0;
+}
+
+function movingBubble(){
+  bubble.velocityY = (-2, -4);
+  bubble2.velocityY = (-2, -4);
+}
+
+function movingBubble2(){
+  bubble.velocityY = randomNumber(-6, -8);
+  bubble2.velocityY = randomNumber(-6, -8);
+}
+
+function movingBubble3(){
+  bubble3.velocityY = randomNumber(-6, -8);
+}
+
+//Bubble Loop
+function loopBubble(){
+  if (bubble.y < 0){
+    bubble.x = randomNumber(50, 350);
+    bubble.y = 400;
+    bubble.velocityY = randomNumber(-3, -5);
+  }
+}
+  function loopBubble2(){
+  if (bubble2.y < 0){
+    bubble2.x = randomNumber(50, 350);
+    bubble2.y = 400;
+    bubble2.velocityY = randomNumber(-3, -5);
+  }
+  }
+  function loopBubble3(){
+  if (bubble3.y < 0){
+    bubble3.x = randomNumber(50, 350);
+    bubble3.y = 400;
+    bubble3.velocityY = randomNumber(-3, -5);
+  }
+}
+
+//Is Touching
+function touch(){
+  if (bubble.isTouching(asterisk)){
+    score = score + 1;
+    bubble.x = randomNumber(50, 350);
+    bubble.y = 400;
+  }
+  if (bubble2.isTouching(asterisk)){
+    score = score + 1;
+    bubble2.x = randomNumber(50, 350);
+    bubble2.y = 400;
+  }
+  if (bubble3.isTouching(asterisk)){
+    score = score + 1;
+    bubble3.x = randomNumber(50, 350);
+    bubble3.y = 400;
+  }
+}
+
+//Energy Down
+function energyDown(){
+  if (bubble.y < 0.5){
+    energy = energy - 1;
+  }
+}
+function energy2Down(){
+  if (bubble2.y < 0.5){
+    energy = energy - 1;
+  }
+}
+function energy3Down(){
+  if (bubble3.y < 0.5){
+    energy = energy - 2;
+  }
+}
+
+//Energy Up
+function energyUp(){
+  if (score === 40){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 50){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 60){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 70){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 80){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 90){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 100){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 110){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 120){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 130){
+    score = score + 1;
+    energy = energy + 1;
+  }
+  if (score === 140){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 150){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 160){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 170){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 180){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 190){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+  if (score === 200){
+    score = score + 1;
+    energy = energy + 1;
+  } 
+}
+
